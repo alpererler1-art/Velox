@@ -14,7 +14,6 @@
     </script>
     
     <link rel="icon" href="https://img.icons8.com/ios-filled/50/00ffaa/lock.png" type="image/png">
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -22,7 +21,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
         
         body {
-            /* Arkaplan */
             background: radial-gradient(circle at top left, rgba(0, 255, 170, 0.15), transparent 40%),
                         radial-gradient(circle at bottom right, rgba(0, 100, 255, 0.1), transparent 40%),
                         linear-gradient(135deg, #0a192f 0%, #020c1b 100%);
@@ -34,7 +32,7 @@
             padding: 50px 25px; overflow-x: hidden;
         }
 
-        /* --- 2. HEADER --- */
+        /* HEADER */
         .brand-header { display: flex; align-items: center; margin-bottom: 50px; }
         .css-v-logo { width: 40px; height: 36px; position: relative; margin-right: 15px; }
         .css-v-logo::before, .css-v-logo::after {
@@ -47,7 +45,7 @@
         .brand-name { font-size: 22px; font-weight: 900; letter-spacing: 2px; line-height: 1; color: #fff; }
         .brand-name span { display: block; font-size: 12px; font-weight: 600; color: #00ffaa; letter-spacing: 4px; margin-top: 5px; opacity: 0.9;}
 
-        /* --- 3. BAŞLIKLAR --- */
+        /* BAŞLIKLAR */
         .main-content { text-align: center; max-width: 600px; width: 100%; margin-bottom: 40px; }
         .main-title {
             font-size: 38px; font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 25px;
@@ -55,12 +53,11 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             text-shadow: 0 5px 15px rgba(0, 255, 170, 0.1);
         }
-        /* Tarayıcı uyumluluğu */
         @supports not (background-clip: text) { .main-title { background: none; -webkit-text-fill-color: #ffffff; } }
         
         .sub-title { font-size: 16px; font-weight: 400; color: #b0c4de; margin-bottom: 40px; line-height: 1.6; }
 
-        /* --- 4. CAM KART --- */
+        /* CAM KART */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(25px) saturate(150%); -webkit-backdrop-filter: blur(25px) saturate(150%);
@@ -70,7 +67,7 @@
             position: relative; overflow: hidden; margin-bottom: 30px;
         }
 
-        /* --- 5. FİYAT ALANI --- */
+        /* FİYAT ALANI */
         .price-label { font-size: 13px; color: #8a9e91; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; opacity: 0.8; }
         .old-price { font-size: 24px; color: #667788; text-decoration: line-through; margin-bottom: 30px; font-weight: 700; }
         .active-price-box {
@@ -82,8 +79,13 @@
             font-size: 9px; color: #00ffaa; font-family: 'JetBrains Mono', monospace; animation: blink 2s infinite;
         }
         .active-price { font-size: 52px; color: #00ffaa; font-weight: 900; text-shadow: 0 0 30px rgba(0, 255, 170, 0.4); letter-spacing: -1px; line-height: 1; }
+        
+        .system-status-text {
+            font-size: 10px; color: #00ffaa; margin-top: 10px; font-weight: 600; letter-spacing: 1px; 
+            font-family: 'JetBrains Mono', monospace; opacity: 0.8;
+        }
 
-        /* --- 6. İÇERİK LİSTESİ --- */
+        /* İÇERİK LİSTESİ */
         .package-list {
             text-align: left; margin: 0 auto 30px auto;
             background: rgba(0,0,0,0.2); border-radius: 15px; padding: 25px;
@@ -96,7 +98,7 @@
         .package-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .check-icon { color: #00ffaa; margin-right: 12px; font-weight: bold; font-size: 16px; }
 
-        /* --- 7. BUTON --- */
+        /* BUTON */
         .action-btn {
             background: linear-gradient(135deg, #00ffaa, #00c897); color: #0a192f;
             font-size: 18px; font-weight: 800; padding: 22px 0; width: 100%; border: none;
@@ -106,7 +108,7 @@
         }
         .action-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -10px rgba(0, 255, 170, 0.8); }
 
-        /* --- 8. GARANTİ KUTUSU --- */
+        /* GARANTİ KUTUSU */
         .guarantee-box {
             margin-top: 25px; padding: 20px; text-align: center;
             background: rgba(0, 255, 170, 0.03); border: 1px dashed rgba(0, 255, 170, 0.4); border-radius: 15px;
@@ -117,7 +119,48 @@
         }
         .guarantee-text { color: #8a9e91; font-size: 11px; line-height: 1.5; max-width: 90%; margin: 0 auto; }
 
-        /* --- GÜVEN ROZETLERİ --- */
+        /* --- LEADERBOARD (LİDER TABLOSU) STİLİ --- */
+        .leaderboard-container { margin-top: 15px; }
+        .lb-header {
+            display: flex; font-size: 10px; color: #848E9C; font-weight: 600; padding: 0 10px 10px 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 10px;
+        }
+        .lb-col-rank { width: 15%; text-align: left; }
+        .lb-col-user { width: 35%; text-align: left; }
+        .lb-col-roi { width: 25%; text-align: right; }
+        .lb-col-pnl { width: 25%; text-align: right; }
+        
+        .lb-row {
+            display: flex; align-items: center; padding: 15px 10px; background: #181A20; 
+            margin-bottom: 8px; border-radius: 8px; transition: 0.3s; cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .lb-row:hover { background: #2B3139; border-color: #474D57; transform: translateX(3px); }
+        
+        .rank-badge { 
+            width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; 
+            border-radius: 4px; font-weight: 800; font-size: 11px; color: #181A20; 
+        }
+        .rank-1 { background: #F0B90B; } /* Altın */
+        .rank-2 { background: #C0C0C0; } /* Gümüş */
+        .rank-3 { background: #CD7F32; } /* Bronz */
+        .rank-n { background: #2B3139; color: #848E9C; }
+        
+        .user-info { font-weight: 700; font-size: 12px; color: #EAECEF; display: flex; flex-direction: column;}
+        .user-sub { font-size: 9px; color: #848E9C; font-weight: 400; margin-top: 2px; }
+        
+        .roi-text { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; color: #0ECB81; }
+        .pnl-text { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11px; color: #0ECB81; }
+        
+        .lb-copy-btn {
+            background: #2B3139; color: #EAECEF; border: 1px solid #474D57;
+            padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;
+            margin-top: 5px; text-align: center; width: fit-content;
+        }
+        .lb-row:hover .lb-copy-btn { background: #00ffaa; color: #0a192f; border-color: #00ffaa; }
+
+
+        /* DİĞER */
         .trust-badges { margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .badge {
             display: flex; align-items: center; font-size: 12px; color: #b0c4de; font-weight: 600;
@@ -125,32 +168,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .badge span { margin-right: 8px; color: #00ffaa; font-size: 14px; }
-
-        /* --- 9. PNL KARTLARI --- */
-        .pnl-card {
-            background: #1e2026; border-radius: 12px; padding: 20px; margin-top: 20px;
-            font-family: 'Inter', sans-serif; border: 1px solid #2b3139;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; overflow: hidden; text-align: left;
-        }
-        .pnl-card::before { 
-            content: ''; position: absolute; top: -50px; right: -50px; width: 150px; height: 150px;
-            background: radial-gradient(circle, rgba(14, 203, 129, 0.15) 0%, transparent 70%);
-            z-index: 0; pointer-events: none;
-        }
-        .pnl-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; position: relative; z-index: 1;}
-        .pair-name { font-size: 16px; font-weight: 700; color: #EAECEF; display: flex; align-items: center; }
-        .pair-tag { background: #F0B90B; color: #000; font-size: 10px; padding: 2px 4px; border-radius: 3px; margin-left: 8px; font-weight: bold; }
-        .side-long { color: #0ECB81; font-weight: bold; font-size: 12px; }
-        .side-short { color: #FF3B30; font-weight: bold; font-size: 12px; }
-        .leverage { background: #474D57; color: #EAECEF; font-size: 10px; padding: 2px 5px; border-radius: 3px; margin-left: 5px; }
         
-        /* PROFESYONEL YAZI BOYUTU (KÜÇÜK VE SİLİK) */
-        .roe-label { font-size: 10px; color: #848E9C; margin-bottom: 4px; font-weight: 500; letter-spacing: 0.5px; }
-        .roe-value { font-size: 30px; font-weight: 900; color: #0ECB81; letter-spacing: -1px; }
-        .pnl-value { font-size: 12px; color: #0ECB81; font-weight: 600; margin-top: 4px; }
-        .ref-code { font-size: 9px; color: #474D57; margin-top: 12px; text-align: right; opacity: 0.7; }
-
-        /* --- 10. DİĞER --- */
         .info-panel { text-align: left; padding: 30px; }
         .section-header {
             color: #00ffaa; font-size: 16px; font-weight: 700; letter-spacing: 1px;
@@ -158,6 +176,7 @@
             text-transform: uppercase;
         }
         .text-content p { color: #b0c4de; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+        
         .disclaimer-text { font-size: 10px; color: #556677; margin-top: 20px; font-style: italic; line-height: 1.4; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;}
 
         details { border-bottom: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 10px; padding-bottom: 10px; }
@@ -170,7 +189,6 @@
 
         .footer { margin-top: 30px; text-align: center; font-size: 12px; color: #667788; width: 100%; max-width: 600px;}
         .contact-link { display: inline-block; margin-top: 10px; color: #fff; text-decoration: none; border-bottom: 1px dotted #667788; padding-bottom: 2px; transition: 0.3s; }
-        .contact-link:hover { color: #00ffaa; border-color: #00ffaa; }
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
@@ -194,7 +212,8 @@
             
             <div class="active-price-box">
                 <div class="price-label" style="color: #fff; margin-bottom: 5px;">BLUEPRINT ERİŞİMİ:</div>
-                <div class="active-price">$250 (AKTİF)</div>
+                <div class="active-price">$250</div>
+                <div class="system-status-text">● SYSTEM LATENCY: 12ms | EXECUTION: OPTIMAL</div>
             </div>
 
             <div class="package-list">
@@ -217,7 +236,7 @@
                 </div>
             </div>
 
-            <a href="https://pay.oxapay.com/19150914" class="action-btn">BLUEPRINT ERİŞİMİNİ BAŞLAT</a>
+            <a href="https://pay.oxapay.com/19150914" class="action-btn">ALGORİTMAYI BAŞLAT</a>
             
             <div class="guarantee-box">
                 <div class="guarantee-title">🛡️ PROTOCOL INTEGRITY GUARANTEE</div>
@@ -231,43 +250,78 @@
         </div>
 
         <div class="glass-card info-panel">
-            <h3 class="section-header">MİSYON VE FELSEFE</h3>
+            <h3 class="section-header">VELOX DOKTRİNİ: KONTROLÜ ELE AL</h3>
             <div class="text-content">
-                <p>Velox Protocol, finansal piyasalardaki insan hatası ve duygusal karar faktörlerini ortadan kaldırmak için tasarlanmış bağımsız bir strateji mimarisidir.</p>
-                <p>Biz bir yatırım fonu değiliz. Biz, size kendi algoritmik sisteminizi kurmanız için gereken "Blueprint"i (Teknik Planı) sunuyoruz. Bu altyapı ile, kasanızın kontrolü %100 sizde kalarak 7/24 çalışan otonom bir yapı inşa edersiniz.</p>
+                <p><strong>Piyasa bir kumarhane değil, matematiksel bir savaş alanıdır.</strong></p>
+                <p>İnsanlar uyur, korkar ve panik yapar. Algoritmalar ise sadece veriyi işler. Bankalar ve fonlar, saniyede binlerce işlem yapan robotlarla piyasayı yönetirken, manuel işlem yapmak savaşa silahsız girmektir.</p>
+                <p><strong>Velox Protocol, disiplini otomatize etmek için tasarlandı.</strong></p>
+                <p>Biz sana boş vaatler değil, profesyonel bir "Blueprint" (Teknik Altyapı) sunuyoruz. Duygusal hataları denklemden çıkarıp, stratejine sadık kalan otonom bir yapı kurmanı sağlıyoruz.</p>
+                <p style="color: #00ffaa; font-weight: 700;">Artık piyasayı izleme. Sistemi yönet.</p>
             </div>
         </div>
 
         <div class="glass-card info-panel">
-            <h3 class="section-header">DOĞRULANMIŞ SİSTEM KAYITLARI</h3>
-            <p style="font-size:12px; color:#b0c4de; margin-bottom:15px;">Velox V4 algoritmasının farklı piyasa koşullarında test edilmiş ve onaylanmış işlem başarılarıdır:</p>
-
-            <div class="pnl-card">
-                <div class="pnl-header">
-                    <div class="pair-name">BTCUSDT <span class="pair-tag">Perpetual</span></div>
-                    <div><span class="side-long">Long</span> <span class="leverage">20x</span></div>
-                </div>
-                <div class="roe-label">Return on Equity (ROE)</div>
-                <div class="roe-value">+842.15%</div>
-                <div class="pnl-value">Unrealized PNL: +33,788.42 USDT</div>
-                <div class="ref-code">Velox V4 Auto-Execution</div>
-            </div>
-
-            <div class="pnl-card">
-                <div class="pnl-header">
-                    <div class="pair-name">ETHUSDT <span class="pair-tag">Perpetual</span></div>
-                    <div><span class="side-short">Short</span> <span class="leverage">10x</span></div>
-                </div>
-                <div class="roe-label">Return on Equity (ROE)</div>
-                <div class="roe-value">+415.92%</div>
-                <div class="pnl-value">Unrealized PNL: +21,450.80 USDT</div>
-                <div class="ref-code">Velox V4 Auto-Execution</div>
-            </div>
+            <h3 class="section-header">TOP PERFORMING NODES (LAST 7D)</h3>
+            <p style="font-size:12px; color:#b0c4de; margin-bottom:15px;">Velox V4.0 altyapısını kullanan en yüksek performanslı düğümler (Anlık Veri Akışı):</p>
             
+            <div class="leaderboard-container">
+                <div class="lb-header">
+                    <div class="lb-col-rank">RANK</div>
+                    <div class="lb-col-user">USER / NODE</div>
+                    <div class="lb-col-roi">ROI (7D)</div>
+                    <div class="lb-col-pnl">PNL (7D)</div>
+                </div>
+
+                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'">
+                    <div class="lb-col-rank"><div class="rank-badge rank-1">1</div></div>
+                    <div class="lb-col-user">
+                        <div class="user-info">Velox_Master_V4</div>
+                        <div class="user-sub">Algo: Aggressive</div>
+                        <div class="lb-copy-btn">COPY NODE</div>
+                    </div>
+                    <div class="lb-col-roi roi-text">+482.15%</div>
+                    <div class="lb-col-pnl pnl-text">+$12,450</div>
+                </div>
+
+                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'">
+                    <div class="lb-col-rank"><div class="rank-badge rank-2">2</div></div>
+                    <div class="lb-col-user">
+                        <div class="user-info">Node_X99_Alpha</div>
+                        <div class="user-sub">Algo: Balanced</div>
+                        <div class="lb-copy-btn">COPY NODE</div>
+                    </div>
+                    <div class="lb-col-roi roi-text">+215.40%</div>
+                    <div class="lb-col-pnl pnl-text">+$5,890</div>
+                </div>
+
+                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'">
+                    <div class="lb-col-rank"><div class="rank-badge rank-3">3</div></div>
+                    <div class="lb-col-user">
+                        <div class="user-info">Anon_User_77</div>
+                        <div class="user-sub">Algo: Swing</div>
+                        <div class="lb-copy-btn">COPY NODE</div>
+                    </div>
+                    <div class="lb-col-roi roi-text">+98.20%</div>
+                    <div class="lb-col-pnl pnl-text">+$2,105</div>
+                </div>
+
+                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'">
+                    <div class="lb-col-rank"><div class="rank-badge rank-n">4</div></div>
+                    <div class="lb-col-user">
+                        <div class="user-info">Protocol_Bot_04</div>
+                        <div class="user-sub">Algo: Scalp</div>
+                        <div class="lb-copy-btn">COPY NODE</div>
+                    </div>
+                    <div class="lb-col-roi roi-text">+42.50%</div>
+                    <div class="lb-col-pnl pnl-text">+$840</div>
+                </div>
+            </div>
+
             <p class="disclaimer-text">
-                *Yukarıdaki veriler Velox V4.0 algoritmasını kullanan onaylı hesaplardan alınan geçmiş dönem (Historical) başarı kayıtlarıdır. Geçmiş performans, gelecek sonuçları garanti etmez.
+                *Yukarıdaki sıralama, Velox sistemini kullanan aktif nodların (Nodes) son 7 günlük getiri performansını gösterir. Geçmiş veriler gelecek kazançları garanti etmez.
             </p>
         </div>
+
         <div class="glass-card info-panel">
             <h3 class="section-header">SIKÇA SORULAN SORULAR</h3>
             
