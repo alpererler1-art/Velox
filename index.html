@@ -311,4 +311,59 @@
                 <div class="lb-header"><div class="lb-col-rank">RANK</div><div class="lb-col-user">USER / NODE</div><div class="lb-col-roi">ROI (7D)</div><div class="lb-col-pnl">PNL (7D)</div></div>
                 <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'"><div class="lb-col-rank"><div class="rank-badge rank-1">1</div></div><div class="lb-col-user"><div class="user-info">Velox_Master_V4</div><div class="user-sub">Algo: Aggressive</div><div class="lb-copy-btn">COPY NODE</div></div><div class="lb-col-roi roi-text">+482.15%</div><div class="lb-col-pnl pnl-text">+$12,450</div></div>
                 <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'"><div class="lb-col-rank"><div class="rank-badge rank-2">2</div></div><div class="lb-col-user"><div class="user-info">Node_X99_Alpha</div><div class="user-sub">Algo: Balanced</div><div class="lb-copy-btn">COPY NODE</div></div><div class="lb-col-roi roi-text">+215.40%</div><div class="lb-col-pnl pnl-text">+$5,890</div></div>
-                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'"><div class="lb-col-rank"><div class="rank-badge rank-3">3</div></div><div class="lb-col-user"><div class="user-info">Anon_User_77</div><div
+                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'"><div class="lb-col-rank"><div class="rank-badge rank-3">3</div></div><div class="lb-col-user"><div class="user-info">Anon_User_77</div><div class="user-sub">Algo: Swing</div><div class="lb-copy-btn">COPY NODE</div></div><div class="lb-col-roi roi-text">+98.20%</div><div class="lb-col-pnl pnl-text">+$2,105</div></div>
+                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'"><div class="lb-col-rank"><div class="rank-badge rank-n">4</div></div><div class="lb-col-user"><div class="user-info">Protocol_Bot_04</div><div class="user-sub">Algo: Scalp</div><div class="lb-copy-btn">COPY NODE</div></div><div class="lb-col-roi roi-text">+42.50%</div><div class="lb-col-pnl pnl-text">+$840</div></div>
+            </div>
+            <p class="disclaimer-text">*Yukarıdaki sıralama, Velox sistemini kullanan aktif nodların (Nodes) son 7 günlük getiri performansını gösterir. Geçmiş veriler gelecek kazançları garanti etmez.</p>
+        </div>
+
+        <div class="glass-card info-panel">
+            <h3 class="section-header">SIKÇA SORULAN SORULAR</h3>
+            <details><summary>Kodlama bilmem gerekiyor mu?<span class="icon-plus">+</span></summary><div class="faq-answer">Hayır. Velox Blueprint, hazır Python blokları içerir. Yapmanız gereken tek şey, hazırladığımız rehberi izleyerek kodları kopyala-yapıştır yapmaktır. Teknik bilgi gerekmez.</div></details>
+            <details><summary>Bu aylık bir ödeme mi?<span class="icon-plus">+</span></summary><div class="faq-answer">Hayır. Velox Protocol bir kiralama sistemi değildir. Tek seferlik ödeme ile sisteme ve kaynak kodlarına ömür boyu sahip olursunuz.</div></details>
+            <details><summary>Hangi borsalarda çalışır?<span class="icon-plus">+</span></summary><div class="faq-answer">Sistem Binance API altyapısıyla gelir ancak Bybit, OKX ve KuCoin gibi tüm büyük borsalara uyumludur. Coin kısıtlaması yoktur.</div></details>
+            <details><summary>Telefondan yönetebilir miyim?<span class="icon-plus">+</span></summary><div class="faq-answer">Evet. Sistemi kurduktan sonra botunuz bulutta (Cloud) çalışır. Sonuçları telefonunuzdan 7/24 takip edebilirsiniz.</div></details>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 VELOX PROTOCOL. Tüm Hakları Saklıdır.<br>
+        SYSTEM STATUS: <span style="color: #00ffaa;">● OPERATIONAL</span><br><br>
+        <span style="color:#b0c4de">KURUMSAL İLETİŞİM:</span><br>
+        <a href="mailto:contact@veloxprotocol.com" class="contact-link">contact@veloxprotocol.com</a>
+    </div>
+
+    <div class="fake-notification" id="salesToast">
+        <div class="notif-icon">🔥</div>
+        <div class="notif-text">
+            <strong>YENİ ERİŞİM ONAYLANDI</strong>
+            İstanbul konumundan bir kullanıcı sisteme katıldı. Kalan: 27
+        </div>
+    </div>
+
+    <script>
+        // GENCO'S SCARCITY LOGIC
+        // 40 Saniye sonra stok düşecek ve bildirim çıkacak
+        setTimeout(function() {
+            // 1. Rakamı Düşür
+            document.getElementById('slotsRemaining').innerText = '27';
+            
+            // 2. Barı Doldur (Daha da kırmızı yap)
+            document.getElementById('slotsBar').style.width = '73%';
+            
+            // 3. Butondaki yazıyı güncelle
+            document.querySelector('.btn-subtext').innerText = 'SON 27 ERİŞİM HAKKI KALDI';
+            
+            // 4. Bildirimi Göster
+            const toast = document.getElementById('salesToast');
+            toast.classList.add('show');
+            
+            // 5. Bildirimi 5 saniye sonra gizle
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 5000);
+            
+        }, 40000); // 40000 ms = 40 Saniye
+    </script>
+</body>
+</html>
