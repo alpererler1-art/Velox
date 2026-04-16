@@ -57,7 +57,7 @@
         
         .sub-title { font-size: 15px; font-weight: 400; color: #b0c4de; margin-bottom: 30px; line-height: 1.6; }
 
-        /* --- GENCO MOD: SYSTEM WARNING BOX (ALPHA DECAY) --- */
+        /* WARNING BOX */
         .system-warning-box {
             background: rgba(255, 77, 77, 0.08); 
             border: 1px solid rgba(255, 77, 77, 0.3);
@@ -70,7 +70,7 @@
         .warn-content h4 { color: #FF4D4D; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; }
         .warn-content p { color: #d0dbe6; font-size: 11px; line-height: 1.4; opacity: 0.9; }
 
-        /* CAM KART */
+        /* GLASS CARD */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(25px) saturate(150%); -webkit-backdrop-filter: blur(25px) saturate(150%);
@@ -80,25 +80,7 @@
             position: relative; overflow: hidden; margin-bottom: 30px;
         }
 
-        /* FİYAT ALANI */
-        .price-label { font-size: 13px; color: #8a9e91; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; opacity: 0.8; }
-        .old-price { font-size: 24px; color: #667788; text-decoration: line-through; margin-bottom: 30px; font-weight: 700; }
-        .active-price-box {
-            background: rgba(0, 255, 170, 0.05); border-radius: 20px; padding: 20px; margin-bottom: 35px;
-            border: 1px solid rgba(0, 255, 170, 0.1); position: relative;
-        }
-        .active-price-box::after {
-            content: '● ACTIVE SESSION'; position: absolute; top: 10px; right: 15px;
-            font-size: 9px; color: #00ffaa; font-family: 'JetBrains Mono', monospace; animation: blink 2s infinite;
-        }
-        .active-price { font-size: 52px; color: #00ffaa; font-weight: 900; text-shadow: 0 0 30px rgba(0, 255, 170, 0.4); letter-spacing: -1px; line-height: 1; }
-        
-        .system-status-text {
-            font-size: 10px; color: #00ffaa; margin-top: 10px; font-weight: 600; letter-spacing: 1px; 
-            font-family: 'JetBrains Mono', monospace; opacity: 0.8;
-        }
-
-        /* İÇERİK LİSTESİ */
+        /* PACKAGE LIST */
         .package-list {
             text-align: left; margin: 0 auto 20px auto;
             background: rgba(0,0,0,0.2); border-radius: 15px; padding: 25px;
@@ -111,7 +93,7 @@
         .package-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .check-icon { color: #00ffaa; margin-right: 12px; font-weight: bold; font-size: 16px; }
 
-        /* --- GENCO MOD: PANIC COUNTER (LIVE SCARCITY) --- */
+        /* SCARCITY COUNTER */
         .scarcity-container {
             margin-bottom: 25px; text-align: left; padding: 0 5px;
         }
@@ -141,13 +123,14 @@
             transition: width 1s ease-in-out;
         }
 
-        /* BUTON */
+        /* BUTTON */
         .action-btn {
             background: linear-gradient(135deg, #00ffaa, #00c897); color: #0a192f;
             font-size: 18px; font-weight: 800; padding: 22px 0; width: 100%; border: none;
             border-radius: 16px; cursor: pointer; text-transform: uppercase; text-decoration: none;
             display: block; box-shadow: 0 10px 30px -10px rgba(0, 255, 170, 0.6);
             transition: all 0.3s ease; letter-spacing: 1px; position: relative; overflow: hidden;
+            text-align: center;
         }
         .action-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -10px rgba(0, 255, 170, 0.8); }
         
@@ -156,19 +139,9 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* --- GENCO MOD: DELIVERY AUTOMATION INFO --- */
-        .delivery-info {
-            display: flex; align-items: flex-start; gap: 12px; margin-top: 20px;
-            background: rgba(0, 255, 170, 0.05); border: 1px solid rgba(0, 255, 170, 0.2);
-            padding: 15px; border-radius: 12px; text-align: left;
-        }
-        .delivery-icon { font-size: 20px; line-height: 1; }
-        .delivery-text strong { display: block; font-size: 11px; color: #00ffaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; font-family: 'JetBrains Mono', monospace; }
-        .delivery-text p { font-size: 11px; color: #b0c4de; line-height: 1.5; margin: 0; }
-
-        /* GARANTİ KUTUSU */
+        /* GUARANTEE BOX */
         .guarantee-box {
-            margin-top: 20px; padding: 20px; text-align: center;
+            margin-top: 25px; padding: 20px; text-align: center;
             background: rgba(0, 255, 170, 0.03); border: 1px dashed rgba(0, 255, 170, 0.4); border-radius: 15px;
         }
         .guarantee-title {
@@ -190,7 +163,7 @@
         
         .lb-row {
             display: flex; align-items: center; padding: 15px 10px; background: #181A20; 
-            margin-bottom: 8px; border-radius: 8px; transition: 0.3s; cursor: pointer;
+            margin-bottom: 8px; border-radius: 8px; transition: 0.3s; cursor: default;
             border: 1px solid transparent;
         }
         .lb-row:hover { background: #2B3139; border-color: #474D57; transform: translateX(3px); }
@@ -200,10 +173,8 @@
         .user-sub { font-size: 9px; color: #848E9C; font-weight: 400; margin-top: 2px; }
         .roi-text { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; color: #0ECB81; }
         .pnl-text { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11px; color: #0ECB81; }
-        .lb-copy-btn { background: #2B3139; color: #EAECEF; border: 1px solid #474D57; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-top: 5px; text-align: center; width: fit-content; }
-        .lb-row:hover .lb-copy-btn { background: #00ffaa; color: #0a192f; border-color: #00ffaa; }
-
-        /* DİĞER */
+        
+        /* OTHERS */
         .trust-badges { margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .badge { display: flex; align-items: center; font-size: 12px; color: #b0c4de; font-weight: 600; background: rgba(255, 255, 255, 0.05); padding: 8px 15px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); }
         .badge span { margin-right: 8px; color: #00ffaa; font-size: 14px; }
@@ -211,6 +182,7 @@
         .section-header { color: #00ffaa; font-size: 16px; font-weight: 700; letter-spacing: 1px; margin-bottom: 20px; border-bottom: 1px solid rgba(0, 255, 170, 0.2); padding-bottom: 10px; text-transform: uppercase; }
         .text-content p { color: #b0c4de; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
         .disclaimer-text { font-size: 10px; color: #556677; margin-top: 20px; font-style: italic; line-height: 1.4; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;}
+        
         details { border-bottom: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 10px; padding-bottom: 10px; }
         summary { list-style: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; color: #fff; padding: 10px 0; transition: color 0.3s; }
         summary::-webkit-details-marker { display: none; }
@@ -218,13 +190,14 @@
         .icon-plus { font-size: 20px; color: #00ffaa; transition: transform 0.3s; }
         details[open] .icon-plus { transform: rotate(45deg); }
         .faq-answer { color: #9aaabb; font-size: 13px; line-height: 1.5; margin-top: 10px; padding-right: 10px; animation: fadeIn 0.4s ease; }
+        
         .footer { margin-top: 30px; text-align: center; font-size: 12px; color: #667788; width: 100%; max-width: 600px;}
         .contact-link { display: inline-block; margin-top: 10px; color: #fff; text-decoration: none; border-bottom: 1px dotted #667788; padding-bottom: 2px; transition: 0.3s; }
         
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* POPUP NOTIFICATION */
+        /* NOTIFICATION */
         .fake-notification {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
             background: rgba(24, 26, 32, 0.95); border: 1px solid #FF4D4D; color: #fff;
@@ -234,9 +207,6 @@
             backdrop-filter: blur(10px);
         }
         .fake-notification.show { transform: translateX(-50%) translateY(0); }
-        .notif-icon { font-size: 20px; }
-        .notif-text { font-size: 12px; color: #b0c4de; text-align: left; }
-        .notif-text strong { color: #FF4D4D; display: block; font-size: 10px; text-transform: uppercase; margin-bottom: 2px; }
     </style>
 </head>
 <body>
@@ -254,60 +224,7 @@
             <div class="warn-icon">⚠️</div>
             <div class="warn-content">
                 <h4>SİSTEM ERİŞİM KISITLAMASI</h4>
-                <p>Velox Protocol, arbitraj kârlılığını (APY) korumak amacıyla aynı anda sınırlı sayıda kullanıcıya hizmet verir. Bu nedenle <strong>ŞUBAT AYI</strong> alımları 100 kişi ile sınırlandırılmıştır.</p>
-            </div>
-        </div>
-
-        <div class="glass-card">
-            <div class="price-label">KURUMSAL LİSANS DEĞERİ:</div>
-            
-            <div class="old-price">$1,000.00</div>
-            
-            <div class="active-price-box">
-                <div class="price-label" style="color: #fff; margin-bottom: 5px;">BLUEPRINT ERİŞİMİ:</div>
-                <div class="active-price">$250</div>
-                <div class="system-status-text">● SYSTEM LATENCY: 12ms | EXECUTION: OPTIMAL</div>
-            </div>
-
-            <div class="package-list">
-                <div style="font-size:11px; color:#8a9e91; margin-bottom:15px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">SYSTEM ACCESS MODULES:</div>
-                <div class="package-item"><span class="check-icon">✓</span><div>Velox V4.0 Core Algorithm (Full Source)</div></div>
-                <div class="package-item"><span class="check-icon">✓</span><div>Strategy Deployment Architecture</div></div>
-                <div class="package-item"><span class="check-icon">✓</span><div>Institutional Risk Matrix</div></div>
-                <div class="package-item"><span class="check-icon">✓</span><div>Velox Digital Setup Assistant & Guide</div></div>
-            </div>
-
-            <div class="scarcity-container">
-                <div class="scarcity-header">
-                    <div class="scarcity-label"><div class="pulse-dot"></div>KRİTİK KONTENJAN</div>
-                    <div class="scarcity-count">KALAN: <span id="slotsRemaining">28</span> / 100</div>
-                </div>
-                <div class="progress-track">
-                    <div class="progress-fill" id="slotsBar"></div>
-                </div>
-            </div>
-
-            <a href="https://pay.oxapay.com/19150914" class="action-btn">
-                ALGORİTMAYI BAŞLAT
-                <span class="btn-subtext">SON 28 ERİŞİM HAKKI KALDI</span>
-            </a>
-            
-            <div class="delivery-info">
-                <div class="delivery-icon">⚡</div>
-                <div class="delivery-text">
-                    <strong>INSTANT PROTOCOL DEPLOYMENT</strong>
-                    <p>OxaPay ağ onayı alındığı saniye (Ort. 1-3 Dk), <em>Velox V4.0 Kurulum Protokolü</em> ve <em>Node Aktivasyon Anahtarınız</em> otonom olarak ekranınıza yansır. Manuel onay beklenmez.</p>
-                </div>
-            </div>
-
-            <div class="guarantee-box">
-                <div class="guarantee-title">🛡️ PROTOCOL INTEGRITY GUARANTEE</div>
-                <div class="guarantee-text">Yazılım ve eğitim verilerinin bütünlüğü Velox güvencesindedir. Olası bir entegrasyon aksaklığında, <strong>'Dijital Asistan Desteği'</strong> ile sistem aktivasyonunuz tamamlanana kadar süreç garanti altındadır.</div>
-            </div>
-
-            <div class="trust-badges">
-                <div class="badge"><span>🛡️</span> Onaylı Altyapı</div>
-                <div class="badge"><span>🔒</span> 256-Bit SSL</div>
+                <p>Velox Protocol, arbitraj kârlılığını (APY) korumak amacıyla aynı anda sınırlı sayıda kullanıcıya hizmet verir. Bu nedenle güncel alımlar sınırlı sayıda kontenjan ile sınırlandırılmıştır.</p>
             </div>
         </div>
 
@@ -327,12 +244,12 @@
             <p style="font-size:12px; color:#b0c4de; margin-bottom:15px;">Velox V4.0 altyapısını kullanan en yüksek performanslı düğümler (Anlık Veri Akışı):</p>
             <div class="leaderboard-container">
                 <div class="lb-header"><div class="lb-col-rank">RANK</div><div class="lb-col-user">USER / NODE</div><div class="lb-col-roi">ROI (7D)</div><div class="lb-col-pnl">PNL (7D)</div></div>
-                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'"><div class="lb-col-rank"><div class="rank-badge rank-1">1</div></div><div class="lb-col-user"><div class="user-info">Velox_Master_V4</div><div class="user-sub">Algo: Aggressive</div><div class="lb-copy-btn">COPY NODE</div></div><div class="lb-col-roi roi-text">+482.15%</div><div class="lb-col-pnl pnl-text">+$12,450</div></div>
-                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'"><div class="lb-col-rank"><div class="rank-badge rank-2">2</div></div><div class="lb-col-user"><div class="user-info">Node_X99_Alpha</div><div class="user-sub">Algo: Balanced</div><div class="lb-copy-btn">COPY NODE</div></div><div class="lb-col-roi roi-text">+215.40%</div><div class="lb-col-pnl pnl-text">+$5,890</div></div>
-                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'"><div class="lb-col-rank"><div class="rank-badge rank-3">3</div></div><div class="lb-col-user"><div class="user-info">Anon_User_77</div><div class="user-sub">Algo: Swing</div><div class="lb-copy-btn">COPY NODE</div></div><div class="lb-col-roi roi-text">+98.20%</div><div class="lb-col-pnl pnl-text">+$2,105</div></div>
-                <div class="lb-row" onclick="window.location.href='https://pay.oxapay.com/19150914'"><div class="lb-col-rank"><div class="rank-badge rank-n">4</div></div><div class="lb-col-user"><div class="user-info">Protocol_Bot_04</div><div class="user-sub">Algo: Scalp</div><div class="lb-copy-btn">COPY NODE</div></div><div class="lb-col-roi roi-text">+42.50%</div><div class="lb-col-pnl pnl-text">+$840</div></div>
+                <div class="lb-row"><div class="lb-col-rank"><div class="rank-badge rank-1">1</div></div><div class="lb-col-user"><div class="user-info">Velox_Master_V4</div><div class="user-sub">Algo: Aggressive</div></div><div class="lb-col-roi roi-text">+482.15%</div><div class="lb-col-pnl pnl-text">+$12,450</div></div>
+                <div class="lb-row"><div class="lb-col-rank"><div class="rank-badge rank-2">2</div></div><div class="lb-col-user"><div class="user-info">Node_X99_Alpha</div><div class="user-sub">Algo: Balanced</div></div><div class="lb-col-roi roi-text">+215.40%</div><div class="lb-col-pnl pnl-text">+$5,890</div></div>
+                <div class="lb-row"><div class="lb-col-rank"><div class="rank-badge rank-3">3</div></div><div class="lb-col-user"><div class="user-info">Anon_User_77</div><div class="user-sub">Algo: Swing</div></div><div class="lb-col-roi roi-text">+98.20%</div><div class="lb-col-pnl pnl-text">+$2,105</div></div>
+                <div class="lb-row"><div class="lb-col-rank"><div class="rank-badge rank-n">4</div></div><div class="lb-col-user"><div class="user-info">Protocol_Bot_04</div><div class="user-sub">Algo: Scalp</div></div><div class="lb-col-roi roi-text">+42.50%</div><div class="lb-col-pnl pnl-text">+$840</div></div>
             </div>
-            <p class="disclaimer-text">*Yukarıdaki sıralama, Velox sistemini kullanan aktif nodların (Nodes) son 7 günlük getiri performansını gösterir. Geçmiş veriler gelecek kazançları garanti etmez.</p>
+            <p class="disclaimer-text">*Yukarıdaki sıralama, Velox sistemini kullanan aktif nodların (Nodes) son 7 günlük getiri performansını gösterir.</p>
         </div>
 
         <div class="glass-card info-panel">
@@ -342,6 +259,43 @@
             <details><summary>Hangi borsalarda çalışır?<span class="icon-plus">+</span></summary><div class="faq-answer">Sistem Binance API altyapısıyla gelir ancak Bybit, OKX ve KuCoin gibi tüm büyük borsalara uyumludur. Coin kısıtlaması yoktur.</div></details>
             <details><summary>Telefondan yönetebilir miyim?<span class="icon-plus">+</span></summary><div class="faq-answer">Evet. Sistemi kurduktan sonra botunuz bulutta (Cloud) çalışır. Sonuçları telefonunuzdan 7/24 takip edebilirsiniz.</div></details>
         </div>
+
+        <div class="glass-card" style="border: 2px solid rgba(0, 255, 170, 0.3);">
+            <h3 style="color: #00ffaa; font-size: 16px; font-weight: 800; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase;">Sisteme Erişim Modülleri</h3>
+            
+            <div class="package-list">
+                <div class="package-item"><span class="check-icon">✓</span><div>Velox V4.0 Core Algorithm (Full Source)</div></div>
+                <div class="package-item"><span class="check-icon">✓</span><div>Strategy Deployment Architecture</div></div>
+                <div class="package-item"><span class="check-icon">✓</span><div>Institutional Risk Matrix</div></div>
+                <div class="package-item"><span class="check-icon">✓</span><div>Velox Digital Setup Assistant & Guide</div></div>
+            </div>
+
+            <div class="scarcity-container">
+                <div class="scarcity-header">
+                    <div class="scarcity-label"><div class="pulse-dot"></div>KRİTİK KONTENJAN</div>
+                    <div class="scarcity-count">KALAN: <span id="slotsRemaining">28</span> / 100</div>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="slotsBar"></div>
+                </div>
+            </div>
+
+            <a href="payment.html" class="action-btn">
+                ALGORİTMAYI BAŞLAT
+                <span class="btn-subtext">SON 28 ERİŞİM HAKKI KALDI</span>
+            </a>
+            
+            <div class="guarantee-box">
+                <div class="guarantee-title">🛡️ PROTOCOL INTEGRITY GUARANTEE</div>
+                <div class="guarantee-text">Yazılım ve eğitim verilerinin bütünlüğü Velox güvencesindedir. Olası bir entegrasyon aksaklığında, <strong>'Dijital Asistan Desteği'</strong> ile süreç garanti altındadır.</div>
+            </div>
+
+            <div class="trust-badges">
+                <div class="badge"><span>🛡️</span> Onaylı Altyapı</div>
+                <div class="badge"><span>🔒</span> 256-Bit SSL Secure</div>
+            </div>
+        </div>
+
     </div>
 
     <div class="footer">
@@ -360,7 +314,6 @@
     </div>
 
     <script>
-        // GENCO'S SCARCITY LOGIC
         setTimeout(function() {
             document.getElementById('slotsRemaining').innerText = '27';
             document.getElementById('slotsBar').style.width = '73%';
@@ -368,12 +321,11 @@
             
             const toast = document.getElementById('salesToast');
             toast.classList.add('show');
-            
             setTimeout(function() {
                 toast.classList.remove('show');
             }, 5000);
             
-        }, 40000); 
+        }, 15000);
     </script>
 </body>
 </html>
