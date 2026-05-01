@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VELOX PROTOCOL | Limited Access</title>
+    <title>VELOX PROTOCOL | Kurumsal Erişim</title>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7BJEP69TM"></script>
     <script>
@@ -57,19 +57,6 @@
         
         .sub-title { font-size: 15px; font-weight: 400; color: #b0c4de; margin-bottom: 30px; line-height: 1.6; }
 
-        /* WARNING BOX */
-        .system-warning-box {
-            background: rgba(255, 77, 77, 0.08); 
-            border: 1px solid rgba(255, 77, 77, 0.3);
-            border-left: 4px solid #FF4D4D;
-            padding: 15px; margin-bottom: 30px;
-            border-radius: 6px; text-align: left;
-            display: flex; gap: 12px; align-items: flex-start;
-        }
-        .warn-icon { font-size: 20px; color: #FF4D4D; }
-        .warn-content h4 { color: #FF4D4D; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; }
-        .warn-content p { color: #d0dbe6; font-size: 11px; line-height: 1.4; opacity: 0.9; }
-
         /* GLASS CARD */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
@@ -93,36 +80,6 @@
         .package-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .check-icon { color: #00ffaa; margin-right: 12px; font-weight: bold; font-size: 16px; }
 
-        /* SCARCITY COUNTER */
-        .scarcity-container {
-            margin-bottom: 25px; text-align: left; padding: 0 5px;
-        }
-        .scarcity-header {
-            display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px;
-        }
-        .scarcity-label {
-            font-size: 10px; font-weight: 800; color: #FF4D4D; text-transform: uppercase; letter-spacing: 0.5px;
-            display: flex; align-items: center; gap: 5px;
-        }
-        .pulse-dot { width: 6px; height: 6px; background: #FF4D4D; border-radius: 50%; animation: blink 1s infinite; }
-        
-        .scarcity-count {
-            font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: #fff;
-        }
-        .scarcity-count span { color: #FF4D4D; font-size: 16px; }
-
-        .progress-track {
-            width: 100%; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; overflow: hidden;
-            border: 1px solid rgba(255, 77, 77, 0.2);
-        }
-        .progress-fill {
-            height: 100%; width: 72%;
-            background: linear-gradient(90deg, #FF4D4D, #ff1a1a);
-            border-radius: 4px;
-            box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
-            transition: width 1s ease-in-out;
-        }
-
         /* BUTTON */
         .action-btn {
             background: linear-gradient(135deg, #00ffaa, #00c897); color: #0a192f;
@@ -130,14 +87,9 @@
             border-radius: 16px; cursor: pointer; text-transform: uppercase; text-decoration: none;
             display: block; box-shadow: 0 10px 30px -10px rgba(0, 255, 170, 0.6);
             transition: all 0.3s ease; letter-spacing: 1px; position: relative; overflow: hidden;
-            text-align: center;
+            text-align: center; margin-top: 15px;
         }
         .action-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -10px rgba(0, 255, 170, 0.8); }
-        
-        .btn-subtext {
-            font-size: 9px; color: #0a192f; display: block; margin-top: 5px; font-weight: 600; opacity: 0.8;
-            font-family: 'JetBrains Mono', monospace;
-        }
 
         /* GUARANTEE BOX */
         .guarantee-box {
@@ -194,19 +146,7 @@
         .footer { margin-top: 30px; text-align: center; font-size: 12px; color: #667788; width: 100%; max-width: 600px;}
         .contact-link { display: inline-block; margin-top: 10px; color: #fff; text-decoration: none; border-bottom: 1px dotted #667788; padding-bottom: 2px; transition: 0.3s; }
         
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* NOTIFICATION */
-        .fake-notification {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
-            background: rgba(24, 26, 32, 0.95); border: 1px solid #FF4D4D; color: #fff;
-            padding: 12px 20px; border-radius: 12px; width: 90%; max-width: 380px;
-            display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            z-index: 999; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
-        }
-        .fake-notification.show { transform: translateX(-50%) translateY(0); }
     </style>
 </head>
 <body>
@@ -219,14 +159,6 @@
     <div class="main-content">
         <div class="main-title">DUYGULARI<br>DEVRE DIŞI BIRAK</div>
         <div class="sub-title">Kurumsal Düzeyde Algoritmik Ticaret Altyapısı ile Geleceğe Yatırım Yapın.</div>
-
-        <div class="system-warning-box">
-            <div class="warn-icon">⚠️</div>
-            <div class="warn-content">
-                <h4>SİSTEM ERİŞİM KISITLAMASI</h4>
-                <p>Velox Protocol, arbitraj kârlılığını (APY) korumak amacıyla aynı anda sınırlı sayıda kullanıcıya hizmet verir. Bu nedenle güncel alımlar sınırlı sayıda kontenjan ile sınırlandırılmıştır.</p>
-            </div>
-        </div>
 
         <div class="glass-card info-panel">
             <h3 class="section-header">VELOX DOKTRİNİ: KONTROLÜ ELE AL</h3>
@@ -270,19 +202,8 @@
                 <div class="package-item"><span class="check-icon">✓</span><div>Velox Digital Setup Assistant & Guide</div></div>
             </div>
 
-            <div class="scarcity-container">
-                <div class="scarcity-header">
-                    <div class="scarcity-label"><div class="pulse-dot"></div>KRİTİK KONTENJAN</div>
-                    <div class="scarcity-count">KALAN: <span id="slotsRemaining">28</span> / 100</div>
-                </div>
-                <div class="progress-track">
-                    <div class="progress-fill" id="slotsBar"></div>
-                </div>
-            </div>
-
-            <a href="payment.html" class="action-btn">
+            <a href="https://whop.com/checkout/plan_432QUM1XUVVvl" class="action-btn">
                 ALGORİTMAYI BAŞLAT
-                <span class="btn-subtext">SON 28 ERİŞİM HAKKI KALDI</span>
             </a>
             
             <div class="guarantee-box">
@@ -292,7 +213,7 @@
 
             <div class="trust-badges">
                 <div class="badge"><span>🛡️</span> Onaylı Altyapı</div>
-                <div class="badge"><span>🔒</span> 256-Bit SSL Secure</div>
+                <div class="badge"><span>🔒</span> Secured by Whop</div>
             </div>
         </div>
 
@@ -305,27 +226,5 @@
         <a href="mailto:contact@veloxprotocol.com" class="contact-link">contact@veloxprotocol.com</a>
     </div>
 
-    <div class="fake-notification" id="salesToast">
-        <div class="notif-icon">🔥</div>
-        <div class="notif-text">
-            <strong>YENİ ERİŞİM ONAYLANDI</strong>
-            İstanbul konumundan bir kullanıcı sisteme katıldı. Kalan: 27
-        </div>
-    </div>
-
-    <script>
-        setTimeout(function() {
-            document.getElementById('slotsRemaining').innerText = '27';
-            document.getElementById('slotsBar').style.width = '73%';
-            document.querySelector('.btn-subtext').innerText = 'SON 27 ERİŞİM HAKKI KALDI';
-            
-            const toast = document.getElementById('salesToast');
-            toast.classList.add('show');
-            setTimeout(function() {
-                toast.classList.remove('show');
-            }, 5000);
-            
-        }, 15000);
-    </script>
 </body>
 </html>
