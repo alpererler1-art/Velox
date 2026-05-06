@@ -14,26 +14,26 @@
     </script>
     
     <link rel="icon" href="https://img.icons8.com/ios-filled/50/00ffaa/lock.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     
     <style>
         /* --- 1. GENEL AYARLAR --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; -webkit-font-smoothing: antialiased; }
         
         body {
             background: radial-gradient(circle at top left, rgba(0, 255, 170, 0.15), transparent 40%),
                         radial-gradient(circle at bottom right, rgba(0, 100, 255, 0.1), transparent 40%),
                         linear-gradient(135deg, #0a192f 0%, #020c1b 100%);
             background-size: cover; background-attachment: fixed;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             color: #ffffff; 
             min-height: 100vh; 
             display: flex; flex-direction: column; align-items: center; 
-            padding: 50px 25px; overflow-x: hidden;
+            padding: 60px 20px; overflow-x: hidden;
         }
 
         /* HEADER */
-        .brand-header { display: flex; align-items: center; margin-bottom: 30px; }
+        .brand-header { display: flex; align-items: center; margin-bottom: 50px; }
         .css-v-logo { width: 40px; height: 36px; position: relative; margin-right: 15px; }
         .css-v-logo::before, .css-v-logo::after {
             content: ''; position: absolute; bottom: 0; width: 7px; height: 100%;
@@ -46,107 +46,86 @@
         .brand-name span { display: block; font-size: 12px; font-weight: 600; color: #00ffaa; letter-spacing: 4px; margin-top: 5px; opacity: 0.9;}
 
         /* BAŞLIKLAR */
-        .main-content { text-align: center; max-width: 600px; width: 100%; margin-bottom: 40px; }
+        .main-content { text-align: center; max-width: 680px; width: 100%; margin-bottom: 40px; }
         .main-title {
-            font-size: 38px; font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 15px;
+            font-size: 44px; font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 18px;
             background: linear-gradient(to right, #ffffff 20%, #00ffaa 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             text-shadow: 0 5px 15px rgba(0, 255, 170, 0.1);
         }
         @supports not (background-clip: text) { .main-title { background: none; -webkit-text-fill-color: #ffffff; } }
         
-        .sub-title { font-size: 15px; font-weight: 400; color: #b0c4de; margin-bottom: 30px; line-height: 1.6; }
+        .sub-title { font-size: 16px; font-weight: 400; color: #b0c4de; margin-bottom: 40px; line-height: 1.6; }
 
         /* GLASS CARD */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(25px) saturate(150%); -webkit-backdrop-filter: blur(25px) saturate(150%);
-            border-radius: 30px; padding: 45px 35px; width: 100%;
+            border-radius: 24px; padding: 40px; width: 100%;
             border: 1px solid rgba(255, 255, 255, 0.08); border-top: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            position: relative; overflow: hidden; margin-bottom: 30px;
+            position: relative; overflow: hidden; margin-bottom: 24px;
         }
+
+        /* ANTI-MARKETING (KURUMSAL TERS PSİKOLOJİ) */
+        .anti-card { border: 1px solid rgba(255, 69, 58, 0.2); background: rgba(255, 69, 58, 0.02); }
+        .anti-card .section-header { color: #ff453a; border-bottom: 1px solid rgba(255, 69, 58, 0.2); }
+        .anti-card p { color: #b0c4de; font-size: 14px; line-height: 1.6; }
+        .anti-card strong { color: #ffffff; }
+
+        /* ÖZELLİK IZGARASI (VELOX VAATLERİ - KURUMSAL) */
+        .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px; }
+        .feature-card { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px; text-align: left; transition: transform 0.3s ease; }
+        .feature-card:hover { transform: translateY(-4px); background: rgba(0, 255, 170, 0.05); border: 1px solid rgba(0, 255, 170, 0.3); }
+        .feature-icon { font-size: 24px; margin-bottom: 12px; color: #00ffaa; }
+        .feature-title { font-size: 15px; font-weight: 600; color: #ffffff; margin-bottom: 8px; }
+        .feature-desc { font-size: 13px; color: #b0c4de; line-height: 1.5; }
+
+        /* ADIM ADIM KURULUM */
+        .step-container { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; text-align: left; }
+        .step-item { background: rgba(0,0,0,0.2); padding: 18px 20px; border-radius: 12px; border-left: 4px solid #00ffaa; font-size: 14px; color: #b0c4de; line-height: 1.5; }
+        .step-item strong { color: #ffffff; font-size: 15px; display: block; margin-bottom: 5px; }
+
+        @media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } .main-title { font-size: 36px; } .glass-card { padding: 30px 20px; } }
 
         /* PACKAGE LIST */
-        .package-list {
-            text-align: left; margin: 0 auto 20px auto;
-            background: rgba(0,0,0,0.2); border-radius: 15px; padding: 25px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .package-item {
-            display: flex; align-items: center; font-size: 13px; color: #d0dbe6;
-            margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed rgba(255,255,255,0.1);
-        }
+        .package-list { text-align: left; margin: 0 auto 30px auto; background: rgba(0,0,0,0.2); border-radius: 16px; padding: 25px; border: 1px solid rgba(255,255,255,0.05); }
+        .package-item { display: flex; align-items: center; font-size: 14px; color: #d0dbe6; font-weight: 500; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px dashed rgba(255,255,255,0.1); }
         .package-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-        .check-icon { color: #00ffaa; margin-right: 12px; font-weight: bold; font-size: 16px; }
+        .check-icon { color: #00ffaa; margin-right: 16px; font-weight: 800; font-size: 16px; }
 
-        /* BUTTON */
-        .action-btn {
-            background: linear-gradient(135deg, #00ffaa, #00c897); color: #0a192f;
-            font-size: 18px; font-weight: 800; padding: 22px 0; width: 100%; border: none;
-            border-radius: 16px; cursor: pointer; text-transform: uppercase; text-decoration: none;
-            display: block; box-shadow: 0 10px 30px -10px rgba(0, 255, 170, 0.6);
-            transition: all 0.3s ease; letter-spacing: 1px; position: relative; overflow: hidden;
-            text-align: center; margin-top: 15px;
-        }
+        /* BUTON */
+        .action-btn { background: linear-gradient(135deg, #00ffaa, #00c897); color: #0a192f; font-size: 18px; font-weight: 900; padding: 22px 0; width: 100%; border: none; border-radius: 16px; cursor: pointer; text-transform: uppercase; text-decoration: none; display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 30px -10px rgba(0, 255, 170, 0.6); transition: all 0.3s ease; letter-spacing: 1px; margin-top: 10px; }
         .action-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -10px rgba(0, 255, 170, 0.8); }
 
         /* GUARANTEE BOX */
-        .guarantee-box {
-            margin-top: 25px; padding: 20px; text-align: center;
-            background: rgba(0, 255, 170, 0.03); border: 1px dashed rgba(0, 255, 170, 0.4); border-radius: 15px;
-        }
-        .guarantee-title {
-            color: #00ffaa; font-size: 12px; font-weight: 800; text-transform: uppercase;
-            letter-spacing: 1px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center;
-        }
-        .guarantee-text { color: #8a9e91; font-size: 11px; line-height: 1.5; max-width: 90%; margin: 0 auto; }
+        .guarantee-box { margin-top: 24px; padding: 20px; text-align: center; background: rgba(0, 255, 170, 0.03); border: 1px dashed rgba(0, 255, 170, 0.4); border-radius: 16px; }
+        .guarantee-title { color: #00ffaa; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; }
+        .guarantee-text { color: #8a9e91; font-size: 12px; line-height: 1.5; max-width: 90%; margin: 0 auto; }
 
-        /* LEADERBOARD */
-        .leaderboard-container { margin-top: 15px; }
-        .lb-header {
-            display: flex; font-size: 10px; color: #848E9C; font-weight: 600; padding: 0 10px 10px 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 10px;
-        }
-        .lb-col-rank { width: 15%; text-align: left; }
-        .lb-col-user { width: 35%; text-align: left; }
-        .lb-col-roi { width: 25%; text-align: right; }
-        .lb-col-pnl { width: 25%; text-align: right; }
-        
-        .lb-row {
-            display: flex; align-items: center; padding: 15px 10px; background: #181A20; 
-            margin-bottom: 8px; border-radius: 8px; transition: 0.3s; cursor: default;
-            border: 1px solid transparent;
-        }
-        .lb-row:hover { background: #2B3139; border-color: #474D57; transform: translateX(3px); }
-        .rank-badge { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-weight: 800; font-size: 11px; color: #181A20; }
-        .rank-1 { background: #F0B90B; } .rank-2 { background: #C0C0C0; } .rank-3 { background: #CD7F32; } .rank-n { background: #2B3139; color: #848E9C; }
-        .user-info { font-weight: 700; font-size: 12px; color: #EAECEF; display: flex; flex-direction: column;}
-        .user-sub { font-size: 9px; color: #848E9C; font-weight: 400; margin-top: 2px; }
-        .roi-text { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; color: #0ECB81; }
-        .pnl-text { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11px; color: #0ECB81; }
-        
         /* OTHERS */
-        .trust-badges { margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .badge { display: flex; align-items: center; font-size: 12px; color: #b0c4de; font-weight: 600; background: rgba(255, 255, 255, 0.05); padding: 8px 15px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .trust-badges { margin-top: 24px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .badge { display: flex; align-items: center; font-size: 12px; color: #b0c4de; font-weight: 600; background: rgba(255, 255, 255, 0.05); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); }
         .badge span { margin-right: 8px; color: #00ffaa; font-size: 14px; }
-        .info-panel { text-align: left; padding: 30px; }
-        .section-header { color: #00ffaa; font-size: 16px; font-weight: 700; letter-spacing: 1px; margin-bottom: 20px; border-bottom: 1px solid rgba(0, 255, 170, 0.2); padding-bottom: 10px; text-transform: uppercase; }
-        .text-content p { color: #b0c4de; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
-        .disclaimer-text { font-size: 10px; color: #556677; margin-top: 20px; font-style: italic; line-height: 1.4; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;}
         
-        details { border-bottom: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 10px; padding-bottom: 10px; }
-        summary { list-style: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; color: #fff; padding: 10px 0; transition: color 0.3s; }
+        .info-panel { text-align: left; }
+        .section-header { color: #00ffaa; font-size: 18px; font-weight: 700; letter-spacing: 1px; margin-bottom: 24px; text-transform: uppercase; border-bottom: 1px solid rgba(0, 255, 170, 0.2); padding-bottom: 10px; }
+        .text-content p { color: #b0c4de; font-size: 15px; line-height: 1.6; margin-bottom: 16px; }
+        .text-content strong { color: #ffffff; }
+        
+        details { border-bottom: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 12px; padding-bottom: 12px; }
+        summary { list-style: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; font-size: 15px; color: #ffffff; padding: 8px 0; transition: color 0.3s; }
         summary::-webkit-details-marker { display: none; }
         summary:hover { color: #00ffaa; }
-        .icon-plus { font-size: 20px; color: #00ffaa; transition: transform 0.3s; }
+        .icon-plus { font-size: 22px; color: #00ffaa; transition: transform 0.3s; }
         details[open] .icon-plus { transform: rotate(45deg); }
-        .faq-answer { color: #9aaabb; font-size: 13px; line-height: 1.5; margin-top: 10px; padding-right: 10px; animation: fadeIn 0.4s ease; }
+        .faq-answer { color: #9aaabb; font-size: 14px; line-height: 1.6; margin-top: 12px; padding-right: 10px; animation: fadeIn 0.4s ease; }
         
-        .footer { margin-top: 30px; text-align: center; font-size: 12px; color: #667788; width: 100%; max-width: 600px;}
+        .footer { margin-top: 40px; text-align: center; font-size: 12px; color: #667788; width: 100%; max-width: 600px;}
         .contact-link { display: inline-block; margin-top: 10px; color: #fff; text-decoration: none; border-bottom: 1px dotted #667788; padding-bottom: 2px; transition: 0.3s; }
+        .contact-link:hover { color: #00ffaa; }
         
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -157,49 +136,91 @@
     </div>
 
     <div class="main-content">
-        <div class="main-title">DUYGULARI<br>DEVRE DIŞI BIRAK</div>
-        <div class="sub-title">Kurumsal Düzeyde Algoritmik Ticaret Altyapısı ile Geleceğe Yatırım Yapın.</div>
+        <div class="main-title">Duyguları<br>Devre Dışı Bırak</div>
+        <div class="sub-title">Kurumsal düzeyde algoritmik ticaret altyapısı. Geleceğin finansal mimarisini kendi sunucunuza kurun.</div>
 
         <div class="glass-card info-panel">
-            <h3 class="section-header">VELOX DOKTRİNİ: KONTROLÜ ELE AL</h3>
+            <h3 class="section-header">Velox Doktrini: Kontrolü Ele Al</h3>
             <div class="text-content">
                 <p><strong>Piyasa bir kumarhane değil, matematiksel bir savaş alanıdır.</strong></p>
-                <p>İnsanlar uyur, korkar ve panik yapar. Algoritmalar ise sadece veriyi işler. Bankalar ve fonlar, saniyede binlerce işlem yapan robotlarla piyasayı yönetirken, manuel işlem yapmak savaşa silahsız girmektir.</p>
+                <p>İnsanlar uyur, korkar ve panik yapar. Algoritmalar ise sadece veriyi işler. Kurumsal fonlar, saniyede binlerce işlem yapan otomasyonlarla piyasayı yönetirken, manuel işlem yapmak savaşa silahsız girmektir.</p>
                 <p><strong>Velox Protocol, disiplini otomatize etmek için tasarlandı.</strong></p>
-                <p>Biz sana boş vaatler değil, profesyonel bir "Blueprint" (Teknik Altyapı) sunuyoruz. Duygusal hataları denklemden çıkarıp, stratejine sadık kalan otonom bir yapı kurmanı sağlıyoruz.</p>
-                <p style="color: #00ffaa; font-weight: 700;">Artık piyasayı izleme. Sistemi yönet.</p>
+                <p>Biz size boş vaatler değil, profesyonel bir "Blueprint" (Teknik Altyapı) sunuyoruz. Duygusal hataları denklemden çıkarıp, stratejinize sadık kalan otonom ve acımasız bir yapı kurmanızı sağlıyoruz.</p>
+                <p style="color: #00ffaa; font-weight: 700; margin-top: 24px;">Artık piyasayı izleme. Sistemi yönet.</p>
             </div>
         </div>
 
         <div class="glass-card info-panel">
-            <h3 class="section-header">TOP PERFORMING NODES (LAST 7D)</h3>
-            <p style="font-size:12px; color:#b0c4de; margin-bottom:15px;">Velox V4.0 altyapısını kullanan en yüksek performanslı düğümler (Anlık Veri Akışı):</p>
-            <div class="leaderboard-container">
-                <div class="lb-header"><div class="lb-col-rank">RANK</div><div class="lb-col-user">USER / NODE</div><div class="lb-col-roi">ROI (7D)</div><div class="lb-col-pnl">PNL (7D)</div></div>
-                <div class="lb-row"><div class="lb-col-rank"><div class="rank-badge rank-1">1</div></div><div class="lb-col-user"><div class="user-info">Velox_Master_V4</div><div class="user-sub">Algo: Aggressive</div></div><div class="lb-col-roi roi-text">+482.15%</div><div class="lb-col-pnl pnl-text">+$12,450</div></div>
-                <div class="lb-row"><div class="lb-col-rank"><div class="rank-badge rank-2">2</div></div><div class="lb-col-user"><div class="user-info">Node_X99_Alpha</div><div class="user-sub">Algo: Balanced</div></div><div class="lb-col-roi roi-text">+215.40%</div><div class="lb-col-pnl pnl-text">+$5,890</div></div>
-                <div class="lb-row"><div class="lb-col-rank"><div class="rank-badge rank-3">3</div></div><div class="lb-col-user"><div class="user-info">Anon_User_77</div><div class="user-sub">Algo: Swing</div></div><div class="lb-col-roi roi-text">+98.20%</div><div class="lb-col-pnl pnl-text">+$2,105</div></div>
-                <div class="lb-row"><div class="lb-col-rank"><div class="rank-badge rank-n">4</div></div><div class="lb-col-user"><div class="user-info">Protocol_Bot_04</div><div class="user-sub">Algo: Scalp</div></div><div class="lb-col-roi roi-text">+42.50%</div><div class="lb-col-pnl pnl-text">+$840</div></div>
+            <h3 class="section-header">Teknolojik Üstünlük</h3>
+            <p style="font-size:14px; color:#b0c4de; margin-bottom:20px;">V4.0 Mimarisinin yatırımcılara sunduğu kurumsal standartlar:</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Sıfır Gecikmeli Yürütme</div>
+                    <div class="feature-desc">Kararlarınız milisaniyeler içinde, duygusal sapmalardan tamamen arındırılmış olarak işlenir.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-title">Kurumsal Risk Kalkanı</div>
+                    <div class="feature-desc">Sermaye koruma odaklı algoritmalarla donatılmış, proaktif ve dinamik risk yönetimi protokolleri.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <div class="feature-title">Kesintisiz Otonomi</div>
+                    <div class="feature-desc">Sistem, 7/24 piyasa dinamiklerini analiz eder ve optimize edilmiş stratejinizi aralıksız uygular.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <div class="feature-title">Mutlak Veri Egemenliği</div>
+                    <div class="feature-desc">API anahtarlarınız ve işlem verileriniz yalnızca kendi donanımınızda kalır. Üçüncü şahıs erişimi yoktur.</div>
+                </div>
             </div>
-            <p class="disclaimer-text">*Yukarıdaki sıralama, Velox sistemini kullanan aktif nodların (Nodes) son 7 günlük getiri performansını gösterir.</p>
+        </div>
+
+        <div class="glass-card info-panel anti-card">
+            <h3 class="section-header" style="color: #ff453a;">UYGUNLUK STANDARTLARI</h3>
+            <div class="text-content">
+                <p>Velox Protocol, yüksek risk iştahına sahip spekülatif yatırımcılar için tasarlanmamıştır. Disiplinsiz piyasa hareketleri, manuel strateji ihlalleri ve risk yönetimini göz ardı eden yaklaşımlar sistemin mimarisine aykırıdır.</p>
+                <p style="margin-top: 10px;">Sürdürülebilir algoritmik büyüme yerine kısa vadeli yüksek kazanç arayışında olan kullanıcıların <strong>bu kurumsal altyapıyı kullanması önerilmez.</strong></p>
+            </div>
         </div>
 
         <div class="glass-card info-panel">
-            <h3 class="section-header">SIKÇA SORULAN SORULAR</h3>
-            <details><summary>Kodlama bilmem gerekiyor mu?<span class="icon-plus">+</span></summary><div class="faq-answer">Hayır. Velox Blueprint, hazır Python blokları içerir. Yapmanız gereken tek şey, hazırladığımız rehberi izleyerek kodları kopyala-yapıştır yapmaktır. Teknik bilgi gerekmez.</div></details>
-            <details><summary>Bu aylık bir ödeme mi?<span class="icon-plus">+</span></summary><div class="faq-answer">Hayır. Velox Protocol bir kiralama sistemi değildir. Tek seferlik ödeme ile sisteme ve kaynak kodlarına ömür boyu sahip olursunuz.</div></details>
-            <details><summary>Hangi borsalarda çalışır?<span class="icon-plus">+</span></summary><div class="faq-answer">Sistem Binance API altyapısıyla gelir ancak Bybit, OKX ve KuCoin gibi tüm büyük borsalara uyumludur. Coin kısıtlaması yoktur.</div></details>
-            <details><summary>Telefondan yönetebilir miyim?<span class="icon-plus">+</span></summary><div class="faq-answer">Evet. Sistemi kurduktan sonra botunuz bulutta (Cloud) çalışır. Sonuçları telefonunuzdan 7/24 takip edebilirsiniz.</div></details>
+            <h3 class="section-header">Kurulum Mimarisi</h3>
+            <p style="font-size:14px; color:#b0c4de;">Sıfır kodlama bilgisiyle otonom düğümünüzü (Node) başlatın:</p>
+            <div class="step-container">
+                <div class="step-item">
+                    <strong>1. Altyapı İndirmesi</strong>
+                    Velox V4.0 açık kaynak kodlarını ve dijital kurulum rehberini güvenli Whop protokolü üzerinden teslim alın.
+                </div>
+                <div class="step-item">
+                    <strong>2. API Entegrasyonu</strong>
+                    Sistemi yerel borsa hesabınıza bağlayın. Fonlarınız ve transfer yetkileriniz borsanızın güvencesinde kalır.
+                </div>
+                <div class="step-item">
+                    <strong>3. Otonom Aktivasyon</strong>
+                    Bulut sunucunuzda sistemi aktif hale getirin ve algoritmanın bağımsız veri işlemesine izin verin.
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card info-panel">
+            <h3 class="section-header">Sıkça Sorulan Sorular</h3>
+            <details><summary>Kodlama bilmem gerekiyor mu?<span class="icon-plus">+</span></summary><div class="faq-answer">Hayır. Velox Blueprint, hazır Python modülleri içerir. Yapmanız gereken tek şey, teknik rehberi izleyerek entegrasyonu tamamlamaktır. Hiçbir yazılım bilgisi gerekmez.</div></details>
+            <details><summary>Bu abonelik tabanlı bir ödeme mi?<span class="icon-plus">+</span></summary><div class="faq-answer">Hayır. Velox Protocol bir kiralama sistemi değildir. Tek seferlik ödeme ile sisteme ve açık kaynak kodlarına ömür boyu sahip olursunuz.</div></details>
+            <details><summary>Hangi borsalarla entegre çalışır?<span class="icon-plus">+</span></summary><div class="faq-answer">Sistem standart olarak Binance API altyapısıyla gelir, ancak modüler yapısı sayesinde Bybit, OKX ve KuCoin gibi tüm majör borsalara tam uyumludur.</div></details>
+            <details><summary>Mobil cihazlardan yönetilebilir mi?<span class="icon-plus">+</span></summary><div class="faq-answer">Evet. Kurulum sonrası otonom düğümünüz bulutta (Cloud) çalışır. Sistem metriklerini mobil cihazınızdan 7/24 izleyebilirsiniz.</div></details>
         </div>
 
         <div class="glass-card" style="border: 2px solid rgba(0, 255, 170, 0.3);">
-            <h3 style="color: #00ffaa; font-size: 16px; font-weight: 800; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase;">Sisteme Erişim Modülleri</h3>
+            <h3 class="section-header" style="text-align: center; margin-bottom: 30px; border: none; padding: 0;">Sisteme Erişim Modülleri</h3>
             
             <div class="package-list">
-                <div class="package-item"><span class="check-icon">✓</span><div>Velox V4.0 Core Algorithm (Full Source)</div></div>
-                <div class="package-item"><span class="check-icon">✓</span><div>Strategy Deployment Architecture</div></div>
-                <div class="package-item"><span class="check-icon">✓</span><div>Institutional Risk Matrix</div></div>
-                <div class="package-item"><span class="check-icon">✓</span><div>Velox Digital Setup Assistant & Guide</div></div>
+                <div class="package-item"><span class="check-icon">✓</span><div>Velox V4.0 Çekirdek Algoritması (Tam Kaynak Kod)</div></div>
+                <div class="package-item"><span class="check-icon">✓</span><div>Strateji Dağıtım Mimarisi</div></div>
+                <div class="package-item"><span class="check-icon">✓</span><div>Kurumsal Risk Matrisi Modülü</div></div>
+                <div class="package-item"><span class="check-icon">✓</span><div>Dijital Kurulum Asistanı ve Teknik Rehber</div></div>
             </div>
 
             <a href="https://whop.com/checkout/plan_432QUM1XUVVvl" class="action-btn">
@@ -207,8 +228,8 @@
             </a>
             
             <div class="guarantee-box">
-                <div class="guarantee-title">🛡️ PROTOCOL INTEGRITY GUARANTEE</div>
-                <div class="guarantee-text">Yazılım ve eğitim verilerinin bütünlüğü Velox güvencesindedir. Olası bir entegrasyon aksaklığında, <strong>'Dijital Asistan Desteği'</strong> ile süreç garanti altındadır.</div>
+                <div class="guarantee-title">🛡️ Protokol Bütünlük Garantisi</div>
+                <div class="guarantee-text">Yazılım ve eğitim verilerinin bütünlüğü Velox güvencesindedir. Olası bir entegrasyon aksaklığında, <strong>Dijital Asistan Desteği</strong> ile operasyonel süreklilik garanti altındadır.</div>
             </div>
 
             <div class="trust-badges">
@@ -220,8 +241,8 @@
     </div>
 
     <div class="footer">
-        © 2025 VELOX PROTOCOL. Tüm Hakları Saklıdır.<br>
-        SYSTEM STATUS: <span style="color: #00ffaa;">● OPERATIONAL</span><br><br>
+        © 2026 VELOX PROTOCOL. Tüm Hakları Saklıdır.<br>
+        SİSTEM DURUMU: <span style="color: #00ffaa;">● OPERATİF</span><br><br>
         <span style="color:#b0c4de">KURUMSAL İLETİŞİM:</span><br>
         <a href="mailto:contact@veloxprotocol.com" class="contact-link">contact@veloxprotocol.com</a>
     </div>
