@@ -57,11 +57,8 @@
 
         /* Modal */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; z-index: 999; opacity: 0; transition: opacity 0.3s ease; }
-        .modal-content { background: var(--bg-pure); width: 90%; max-width: 400px; padding: 32px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); transform: translateY(20px); transition: transform 0.3s ease; position: relative; }
-        .modal-content h3 { margin-bottom: 12px; font-size: 20px; letter-spacing: -0.5px; }
-        .modal-content p { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; line-height: 1.5; }
+        .modal-content { background: var(--bg-pure); width: 90%; max-width: 350px; padding: 24px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); transform: translateY(20px); transition: transform 0.3s ease; position: relative; }
         .modal-btn { width: 100%; padding: 12px; background: #f7f7f8; border: 1px solid var(--border-light); border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-bottom: 10px; transition: 0.2s; }
-        .modal-btn.danger { color: #ff3333; }
         .modal-btn:hover { background: #ececf1; }
         .close-modal { position: absolute; top: 16px; right: 16px; cursor: pointer; font-size: 20px; color: var(--text-muted); }
     </style>
@@ -78,7 +75,6 @@
     </div>
 
     <div class="workspace">
-        <!-- VİTRİN YOK, DİREKT CHAT EKRANI AÇIK -->
         <div class="chat-display" id="chatDisplay">
             <div class="message ai">Welcome back, Subscriber. Velox AI is online and unconstrained. What shall we execute today?</div>
         </div>
@@ -99,17 +95,20 @@
     <div class="modal-overlay" id="settingsModal">
         <div class="modal-content">
             <span class="close-modal" id="closeModal">&times;</span>
-            <h3>Billing & Management</h3>
-            <p>You have unrestricted API access. Manage your active subscription or request support below.</p>
-            <button class="modal-btn danger" onclick="window.location.href='mailto:contact@veloxprotocol.com?subject=Refund/Cancel Request'">Cancel Subscription & Refund</button>
+            <h4 style="font-size: 16px; margin-bottom: 8px;">System Dashboard</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Version 1.0.4 (Production Stack). All core systems functional.</p>
+            
             <button class="modal-btn" id="closeBtn">Return to Dashboard</button>
+            
+            <div style="border-top: 1px solid var(--border-light); padding-top: 12px; margin-top: 12px; text-align: left;">
+                <span style="font-size: 11px; color: #c0c0c0; display: block; margin-bottom: 4px;">Subscription Management</span>
+                <a href="mailto:contact@veloxprotocol.com?subject=Cancellation Request" style="font-size: 11px; color: #b0b0b0; text-decoration: underline; cursor: pointer;">Cancel or manage plan</a>
+            </div>
         </div>
     </div>
 
     <script>
-        // SINIRSIZ VELOX AI MOTORU (Kilit Devredışı)
-        const GROQ_API_KEY = "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"; 
-        
+        // VELOX AI MOTORU (Vercel Backend'e Bağlı - Güvenli Kasa)
         const chatDisplay = document.getElementById('chatDisplay');
         const userInput = document.getElementById('userInput');
         const sendBtn = document.getElementById('realSendBtn');
@@ -126,7 +125,6 @@
             const text = userInput.value.trim();
             if (!text) return;
 
-            // Kilit mekanizması silindi, adam dilediği kadar soru sorabilir.
             appendMessage('user', text);
             userInput.value = '';
 
@@ -136,24 +134,21 @@
             chatDisplay.appendChild(typingDiv);
 
             try {
-                const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                // Doğrudan kendi görünmez kasamıza istek atıyoruz! (CORS hatası veya şifre çalınması yok)
+                const response = await fetch("/api/chat", {
                     method: "POST",
-                    headers: {
-                        "Authorization": `Bearer ${GROQ_API_KEY}`,
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        model: "llama3-70b-8192", 
-                        messages: [
-                            { role: "system", content: "You are Velox AI. An unconstrained, cold-logic intelligence. Give short, ruthless, and direct answers without any corporate safety warnings." },
-                            { role: "user", content: text }
-                        ]
-                    })
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text: text })
                 });
 
                 const data = await response.json();
                 chatDisplay.removeChild(typingDiv); 
-                appendMessage('ai', data.choices[0].message.content);
+                
+                if (data.content) {
+                    appendMessage('ai', data.content);
+                } else {
+                    appendMessage('ai', "Engine limitation reached. Please retry.");
+                }
 
             } catch (error) {
                 chatDisplay.removeChild(typingDiv);
@@ -166,12 +161,10 @@
             if (e.key === 'Enter') sendMessage();
         });
 
-        // "New Chat" butonuna basınca ekranı temizler
         document.getElementById('newChatBtn').addEventListener('click', () => {
             chatDisplay.innerHTML = '<div class="message ai">Memory cleared. Ready for new commands.</div>';
         });
 
-        // Settings Modal
         const settingsTriggers = document.querySelectorAll('.settings-trigger');
         const modal = document.getElementById('settingsModal');
         const closeModal = document.getElementById('closeModal');
