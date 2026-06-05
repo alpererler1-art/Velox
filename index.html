@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velox AI | Unconstrained Intelligence</title>
     
+    <!-- WHOP CHECKOUT SCRIPT (Ödeme ekranını sitemize gömmek için) -->
+    <script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
+    
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='1.05em' font-size='80' fill='%2300ff41' font-family='sans-serif' font-weight='bold'>Λ</text></svg>">
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -51,7 +54,6 @@
         .premium-btn { background-color: var(--text-dark); color: var(--bg-pure); border: 1px solid rgba(255,255,255,0.1); padding: 16px 32px; font-size: 15px; font-weight: 500; border-radius: 12px; cursor: pointer; width: 100%; transition: all 0.3s ease; box-shadow: var(--shadow-premium); display: flex; justify-content: center; align-items: center; gap: 10px; }
         .premium-btn:hover { transform: translateY(-2px); color: var(--neon-accent); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); }
         
-        /* Yenilenen Whop Güvenlik Yazısı */
         .legal-ghost { margin-top: 16px; font-size: 11.5px; color: var(--text-muted); text-align: center; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px; }
 
         /* Chat Display Area */
@@ -68,17 +70,15 @@
         .chat-input input::placeholder { color: #b0b0b0; font-weight: 400; }
         .send-btn { width: 32px; height: 32px; border-radius: 8px; background-color: var(--text-dark); display: flex; justify-content: center; align-items: center; cursor: pointer; color: var(--neon-accent); font-size: 14px; transition: 0.2s; }
 
-        /* KURUMSAL ALT BİLGİ (FOOTER) */
+        /* KURUMSAL ALT BİLGİ (FOOTER) - İPTAL LİNKİNE BAĞLI */
         .corporate-footer { text-align: center; font-size: 11px; color: #a0a0a0; line-height: 1.5; font-weight: 400; }
         .corporate-footer a { color: #a0a0a0; text-decoration: none; transition: 0.2s; }
         .corporate-footer a:hover { color: var(--text-dark); }
         .corporate-footer .legal-links { font-size: 9.5px; opacity: 0.7; margin-top: 4px; }
 
-        /* Yenilenen Modal */
+        /* WHOP CHECKOUT (ÖDEME) MODALI */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; z-index: 999; opacity: 0; transition: opacity 0.3s ease; }
-        .modal-content { background: var(--bg-pure); width: 90%; max-width: 350px; padding: 24px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); transform: translateY(20px); transition: transform 0.3s ease; position: relative; }
-        .modal-btn { width: 100%; padding: 12px; background: #f7f7f8; border: 1px solid var(--border-light); border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-bottom: 10px; transition: 0.2s; }
-        .modal-btn:hover { background: #ececf1; }
+        .modal-content { background: var(--bg-pure); width: 90%; max-width: 400px; padding: 24px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); transform: translateY(20px); transition: transform 0.3s ease; position: relative; }
         .close-modal { position: absolute; top: 16px; right: 16px; cursor: pointer; font-size: 20px; color: var(--text-muted); }
     </style>
 </head>
@@ -88,8 +88,8 @@
         <div class="brand"><div class="brand-logo">Λ<span>.</span></div><div class="brand-name">Velox AI</div></div>
         <button class="nav-btn" id="newChatBtn"><span class="icon-plus">+</span> New Chat</button>
         <div class="sidebar-footer">
-            <div class="user-menu settings-trigger">Settings</div>
-            <div class="user-menu settings-trigger" style="margin-top: 4px;">Billing & Management</div>
+            <div class="user-menu" onclick="window.location.href='mailto:contact@veloxprotocol.com?subject=Cancellation Request'">Settings</div>
+            <div class="user-menu" style="margin-top: 4px;" onclick="window.location.href='mailto:contact@veloxprotocol.com?subject=Cancellation Request'">Billing & Management</div>
         </div>
     </div>
 
@@ -117,29 +117,30 @@
             </div>
             
             <div class="corporate-footer">
-                © 2026 Velox Protocol LLC. All rights reserved. | <a href="mailto:contact@veloxprotocol.com">contact@veloxprotocol.com</a>
-                <div class="legal-links">By using Velox AI, you agree to our Terms of Service and Privacy Policy. Artificial intelligence can make mistakes. Consider verifying important information.</div>
+                © 2026 Velox Protocol LLC. All rights reserved. | <a href="mailto:contact@veloxprotocol.com?subject=Cancellation Request">contact@veloxprotocol.com</a>
+                <div class="legal-links">By using Velox AI, you agree to our <a href="mailto:contact@veloxprotocol.com?subject=Cancellation Request" style="color:inherit; text-decoration:none;">Terms of Service and Privacy Policy</a>. Artificial intelligence can make mistakes.</div>
             </div>
         </div>
     </div>
 
-    <div class="modal-overlay" id="settingsModal">
+    <!-- WHOP CHECKOUT (ÖDEME) MODALI -->
+    <div class="modal-overlay" id="checkoutModal">
         <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <h4 style="font-size: 16px; margin-bottom: 8px;">System Dashboard</h4>
-            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">System Locked. Upgrade to Premium for full access and settings management.</p>
+            <span class="close-modal" id="closeCheckoutModal">&times;</span>
+            <h4 style="font-size: 18px; margin-bottom: 8px; text-align: center;">Protocol Locked</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px; text-align: center;">Unlock full system execution for $1 to continue.</p>
             
-            <button class="modal-btn" id="closeBtn">Return</button>
-            
-            <div style="border-top: 1px solid var(--border-light); padding-top: 12px; margin-top: 12px; text-align: left;">
-                <span style="font-size: 11px; color: #c0c0c0; display: block; margin-bottom: 4px;">Subscription Management</span>
-                <a href="mailto:contact@veloxprotocol.com?subject=Cancellation Request" style="font-size: 11px; color: #b0b0b0; text-decoration: underline; cursor: pointer;">Cancel or manage plan</a>
+            <!-- WHOP IFRAME GÖMÜLÜ ALAN -->
+            <div style="width: 100%; min-height: 350px; border-radius: 12px; overflow: hidden;">
+                <div data-whop-checkout-plan-id="plan_SwDBFBOrsNPJw" data-whop-checkout-return-url="https://veloxprotocol.com/dashboard.html" data-whop-checkout-theme="light"></div>
             </div>
+            
+            <div class="legal-ghost" style="margin-top: 12px;">🔒 Secured by Whop</div>
         </div>
     </div>
 
     <script>
-        // VELOX AI MOTORU (1 MESAJ YEMİ + VERCEL BACKEND)
+        // VELOX AI MOTORU (1 MESAJ YEMİ + VERCEL KASASI + WHOP EMBED)
         let messageCount = 0; 
         
         const chatDisplay = document.getElementById('chatDisplay');
@@ -147,6 +148,9 @@
         const sendBtn = document.getElementById('realSendBtn');
         const heroSection = document.getElementById('heroSection');
         const paymentBtn = document.getElementById('mainPaymentBtn');
+
+        const checkoutModal = document.getElementById('checkoutModal');
+        const closeCheckoutModal = document.getElementById('closeCheckoutModal');
 
         function appendMessage(sender, text) {
             const msgDiv = document.createElement('div');
@@ -156,19 +160,35 @@
             chatDisplay.scrollTop = chatDisplay.scrollHeight;
         }
 
+        // Ödeme Ekranını Açma Fonksiyonu
+        function showCheckout() {
+            checkoutModal.style.display = 'flex';
+            setTimeout(() => {
+                checkoutModal.style.opacity = '1';
+                checkoutModal.querySelector('.modal-content').style.transform = 'translateY(0)';
+            }, 10);
+        }
+
+        function hideCheckout() {
+            checkoutModal.style.opacity = '0';
+            checkoutModal.querySelector('.modal-content').style.transform = 'translateY(20px)';
+            setTimeout(() => { checkoutModal.style.display = 'none'; }, 300);
+        }
+
+        paymentBtn.addEventListener('click', showCheckout);
+        closeCheckoutModal.addEventListener('click', hideCheckout);
+
+        window.addEventListener('click', (e) => { 
+            if (e.target === checkoutModal) hideCheckout();
+        });
+
         async function sendMessage() {
             const text = userInput.value.trim();
             if (!text) return;
 
-            // 1. mesajdan sonra sistemi kilitler ve ödemeye yönlendirir
+            // 1. mesajdan sonra sistemi kilitler ve GÖMÜLÜ WHOP MODALINI açar
             if (messageCount >= 1) {
-                alert("System Locked: Trial limit reached. Please unlock full access for $1 to continue executing commands.");
-                paymentBtn.style.transform = "scale(1.05)";
-                paymentBtn.style.boxShadow = "0 15px 30px rgba(0, 255, 65, 0.2)";
-                setTimeout(() => { 
-                    paymentBtn.style.transform = "scale(1)"; 
-                    paymentBtn.style.boxShadow = "var(--shadow-premium)";
-                }, 300);
+                showCheckout();
                 return;
             }
 
@@ -187,7 +207,7 @@
             chatDisplay.appendChild(typingDiv);
 
             try {
-                // Vercel Gizli Kasasına İstek Atılıyor (API Key burada yok)
+                // Vercel Gizli Kasasına İstek Atılıyor
                 const response = await fetch("/api/chat", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -215,42 +235,9 @@
             if (e.key === 'Enter') sendMessage();
         });
 
-        paymentBtn.addEventListener('click', function() {
-            const paymentLink = "https://whop.com/checkout/plan_SwDBFBOrsNPJw"; 
-            
-            this.innerHTML = "Securely redirecting...";
-            this.style.opacity = "0.7";
-            setTimeout(() => { window.location.href = paymentLink; }, 800);
-        });
-
-        const settingsTriggers = document.querySelectorAll('.settings-trigger');
-        const modal = document.getElementById('settingsModal');
-        const closeModal = document.getElementById('closeModal');
-        const closeBtn = document.getElementById('closeBtn');
-
-        settingsTriggers.forEach(btn => {
-            btn.addEventListener('click', () => {
-                modal.style.display = 'flex';
-                setTimeout(() => {
-                    modal.style.opacity = '1';
-                    modal.querySelector('.modal-content').style.transform = 'translateY(0)';
-                }, 10);
-            });
-        });
-
-        function hideModal() {
-            modal.style.opacity = '0';
-            modal.querySelector('.modal-content').style.transform = 'translateY(20px)';
-            setTimeout(() => { modal.style.display = 'none'; }, 300);
-        }
-
-        closeModal.addEventListener('click', hideModal);
-        closeBtn.addEventListener('click', hideModal);
-        window.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
-
         document.getElementById('newChatBtn').addEventListener('click', () => {
             if(messageCount >= 1) {
-                alert("System Locked: Please unlock access for $1.");
+                showCheckout();
             }
         });
     </script>
